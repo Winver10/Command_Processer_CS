@@ -25,7 +25,7 @@ namespace MainProgram
             {
                 Console.Write(">");
                 List<string> commandAfterExplainde = cmexp.ExplainCommand(Console.ReadLine());
-                Command cmd = new Command(cmexp.GetID(), commandAfterExplainde)
+                Command cmd = new Command(cmexp.GetID(), commandAfterExplainde);
                 cmds.Add(cmd);
                 Dislay(cmds);
             }
