@@ -21,13 +21,14 @@ namespace MainProgram
             List<Command> cmds = new List<Command>();
             Command_Explainer cmexp = new Command_Explainer();
 
-            Console.Write(">");
             while (true)
             {
+                Console.Write(">");
                 Command cmd = new Command(0, new List<string>());
                 cmd.SetContent(cmexp.ExplainCommand(Console.ReadLine()));
                 cmd.SetCommand_ID(cmexp.GetID());
                 cmds.Add(cmd);
+                Dislay(cmds);
             }
         }
     }
