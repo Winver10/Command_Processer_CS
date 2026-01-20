@@ -24,7 +24,7 @@ namespace MainProgram
             Console.Write(">");
             while (true)
             {
-                Command cmd = new Command();
+                Command cmd = new Command(0, ());
                 cmd.SetContent(cmexp.ExplainCommand(Console.ReadLine()));
                 cmd.SetCommand_ID(cmexp.GetID());
                 cmds.Add(cmd);
