@@ -51,7 +51,7 @@ namespace Command_Processer
         public List<string> ExplainCommand(string input)
         {
             ID++;
-            List<string> cont = new List<string>;
+            List<string> cont = new List<string>();
 
             if (string.IsNullOrEmpty(input))
             {

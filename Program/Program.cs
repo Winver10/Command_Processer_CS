@@ -18,8 +18,8 @@ namespace MainProgram
         }
         static public void Main()
         {
-            List<Command> cmds = new List<Command>;
-            Command_Explainer cmexp = new Command_Explainer;
+            List<Command> cmds = new List<Command>();
+            Command_Explainer cmexp = new Command_Explainer();
 
             Console.Write(">");
             while (true)
