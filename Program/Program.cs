@@ -8,7 +8,7 @@ namespace MainProgram
 {
     class MainProgram
     {
-        private void Display(List<Command> cmds)
+        static private void Display(List<Command> cmds)
         {
             int j = cmds.Count - 1;
             for (int i = 0; i <= j; i++)
