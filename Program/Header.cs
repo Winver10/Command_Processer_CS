@@ -93,11 +93,12 @@ namespace Command_Processer
                         current.Append(c);
                     }
 
-                    if (current.Length > 0)
-                    {
-                        cont.Add(current.ToString());
-                    }
                 }
+                if (current.Length > 0)
+                {
+                    cont.Add(current.ToString());
+                }
+
             }
 
             return cont;

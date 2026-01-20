@@ -8,7 +8,7 @@ namespace MainProgram
 {
     class MainProgram
     {
-        private void Dislay(List<Command> cmds)
+        private void Display(List<Command> cmds)
         {
             int j = cmds.Count - 1;
             for (int i = 0; i <= j; i++)
@@ -27,7 +27,7 @@ namespace MainProgram
                 List<string> commandAfterExplainde = cmexp.ExplainCommand(Console.ReadLine());
                 Command cmd = new Command(cmexp.GetID(), commandAfterExplainde);
                 cmds.Add(cmd);
-                Dislay(cmds);
+                Display(cmds);
             }
         }
     }
