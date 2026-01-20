@@ -73,7 +73,7 @@ namespace Command_Processer
                         if (inQuotes && i + 1 < input.Length && input[i + 1] == '"')
                         {
                             current.Append('"');
-                            i++；
+                            i++;
                         }
                         else
                         {
