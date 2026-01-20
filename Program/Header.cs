@@ -31,9 +31,9 @@ namespace Command_Processer
                 return "";
             }
 
-            string result;
+            string result = null;
             int j = Content.Count;
-            for (int i; i < j; i++)
+            for (int i = 1; i < j; i++)
             {
                 result += Content[i];
                 if (i != Content.Count - 1)
@@ -53,7 +53,7 @@ namespace Command_Processer
             ID++;
             List<string> cont;
 
-            if (input.Count == 0)
+            if (string.IsNullOrEmpty(input))
             {
                 cont.Add("NO_0");
             }
@@ -62,8 +62,47 @@ namespace Command_Processer
                 input = input.TrimStart('');
                 input = input.TrimEnd('');
 
-                
+                bool inQuotes = false;
+                System.Text.StringBuilder current = new System.Text.StringBuilder();
+
+                for (int i = 0; i < input.Length; i++)
+                {
+                    char c = input[i];
+
+                    if (c == '"')
+                    {
+                        if (inQuotes && i + 1 < input.Length && input[i + 1] == '"')
+                        {
+                            current.Append('"');
+                            i++
+                        }
+                        else
+                        {
+                            inQuotes = !inQuotes;
+                        }
+                    }
+                    else if (c == ' ' && !inQuotes)
+                    {
+                        if (current.Length > 0)
+                        {
+                            cont.Add(current.ToString());
+                            current.Clear();
+                        }
+                    }
+                    else
+                    {
+                        current.Append(c);
+                    }
+
+                    if (current.Length > 0)
+                    {
+                        cont.Add(current.ToString());
+                    }
+                }
             }
+
+            return cont;
         }
+        public int GetID(){return ID;}
     }
 }
