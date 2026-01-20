@@ -1,4 +1,5 @@
 using System;
+using Command_Processer;
 
 namespace mainProgram
 {
@@ -6,7 +7,8 @@ namespace mainProgram
     {
         static public void Main()
         {
-            
+            Command cmd;
+            Command_Explainer cmexp;
         }
     }
 }
