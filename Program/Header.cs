@@ -12,7 +12,7 @@ namespace Command_Processer
            Command_ID = id;
            Content = new List<string>(cont);
         }
-        public const int GetContent_ID()
+        public int GetContent_ID()
         {
             return Command_ID;
         }
@@ -26,12 +26,12 @@ namespace Command_Processer
         }
         public string GetAllContent()
         {
-            if (Content.Count == 0)
+            if (Content.Count == 0 || Content == null)
             {
                 return "";
             }
 
-            string result = null;
+            string result = "";
             int j = Content.Count;
             for (int i = 1; i < j; i++)
             {
@@ -51,7 +51,7 @@ namespace Command_Processer
         public List<string> ExplainCommand(string input)
         {
             ID++;
-            List<string> cont;
+            List<string> cont = new List<string>;
 
             if (string.IsNullOrEmpty(input))
             {
@@ -59,8 +59,7 @@ namespace Command_Processer
             }
             else
             {
-                input = input.TrimStart('');
-                input = input.TrimEnd('');
+                input = input.Trim();
 
                 bool inQuotes = false;
                 System.Text.StringBuilder current = new System.Text.StringBuilder();
@@ -74,7 +73,7 @@ namespace Command_Processer
                         if (inQuotes && i + 1 < input.Length && input[i + 1] == '"')
                         {
                             current.Append('"');
-                            i++
+                            i++；
                         }
                         else
                         {

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq
+using System.Linq;
 
 using Command_Processer;
 
@@ -18,8 +18,8 @@ namespace MainProgram
         }
         static public void Main()
         {
-            List<Command> cmds;
-            Command_Explainer cmexp;
+            List<Command> cmds = new List<Command>;
+            Command_Explainer cmexp = new Command_Explainer;
 
             Console.Write(">");
             while (true)
