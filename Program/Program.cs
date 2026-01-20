@@ -11,7 +11,7 @@ namespace MainProgram
         private void Dislay(List<Command> cmds)
         {
             int j = cmds.Count - 1;
-            for (int i = 0; i == j; i++)
+            for (int i = 0; i <= j; i++)
             {
                 Console.WriteLine(cmds[i].GetAllContent());
             }
@@ -24,9 +24,8 @@ namespace MainProgram
             while (true)
             {
                 Console.Write(">");
-                Command cmd = new Command(0, new List<string>());
-                cmd.SetContent(cmexp.ExplainCommand(Console.ReadLine()));
-                cmd.SetCommand_ID(cmexp.GetID());
+                List<string> commandAfterExplainde = cmexp.ExplainCommand(Console.ReadLine());
+                Command cmd = new Command(cmexp.GetID(), commandAfterExplainde)
                 cmds.Add(cmd);
                 Dislay(cmds);
             }

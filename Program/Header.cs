@@ -33,7 +33,7 @@ namespace Command_Processer
 
             string result = "";
             int j = Content.Count;
-            for (int i = 1; i < j; i++)
+            for (int i = 0; i < j; i++)
             {
                 result += Content[i];
                 if (i != Content.Count - 1)
