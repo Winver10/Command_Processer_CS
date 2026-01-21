@@ -5,38 +5,30 @@ namespace Command_Processer
 {
     class Command
     {
-        private int Command_ID;
-        private List<string> Content;
+        private int _Command_ID;
+        private List<string> _Content;
         public Command(int id, List<string> cont)
         {
-           Command_ID = id;
-           Content = new List<string>(cont);
+           _Command_ID = id;
+           _Content = new List<string>(cont);
         }
-        public int GetContent_ID()
-        {
-            return Command_ID;
-        }
-        public void SetCommand_ID(int id)
-        {
-            Command_ID = id;
-        }
-        public void SetContent(List<string> cont)
-        {
-            Content = cont;
-        }
+
+        public int Command { get; set;}
+        public List<string> Content {get;}
+
         public string GetAllContent()
         {
-            if (Content.Count == 0 || Content == null)
+            if (_Content.Count == 0 || _Content == null)
             {
                 return "";
             }
 
             string result = "";
-            int j = Content.Count;
+            int j = _Content.Count;
             for (int i = 0; i < j; i++)
             {
-                result += Content[i];
-                if (i != Content.Count - 1)
+                result += _Content[i];
+                if (i != _Content.Count - 1)
                 {
                     result += " ";
                 }
@@ -47,7 +39,7 @@ namespace Command_Processer
     }
     class Command_Explainer
     {
-        private int ID;
+        private int _ID;
         public List<string> ExplainCommand(string input)
         {
             ID++;
@@ -103,6 +95,6 @@ namespace Command_Processer
 
             return cont;
         }
-        public int GetID(){return ID;}
+        public int ID{get {return _ID;}}
     }
 }
