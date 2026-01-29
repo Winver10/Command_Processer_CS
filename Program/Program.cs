@@ -24,8 +24,8 @@ namespace MainProgram
             while (true)
             {
                 Console.Write(">");
-                List<string> commandAfterExplainde = cmexp.ExplainCommand(Console.ReadLine());
-                Command cmd = new Command(cmexp.ID, commandAfterExplainde);
+                List<string> commandAfterExplainde = cmexp.ExplainCommand(LightInput.Input.GetInput());
+                Command cmd = new Command(cmexp.getID(), commandAfterExplainde);
                 cmds.Add(cmd);
                 Display(cmds);
             }
