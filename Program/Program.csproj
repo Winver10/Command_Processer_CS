@@ -1,10 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	  <PackageId>SmileCai.Command_Processer</PackageId>
+	  <Version>0.0.1</Version>
+	  <TargetFramework>net9.0</TargetFramework>
+	  <Authors>SmileCai</Authors>
+	  <Description>A NuGet Package to realize the High Light input and Command Processer, with a silly way:)</Description>
+	  <PackageLicenseExpression>Apache-2.0 Lincense</PackageLicenseExpression>
+	  <PackageProjectUrl>https://github.com/Winver10/Command_Processer_CS</PackageProjectUrl>
+	  <PackageTags>console, input, command</PackageTags>
   </PropertyGroup>
 
 </Project>
