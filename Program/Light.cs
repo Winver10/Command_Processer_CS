@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 
 using System;
+using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
@@ -63,25 +64,52 @@ namespace LightInput
             _conter--;
             DateSaver.RemoveAt(DateSaver.Count - 1);
         }
+
+        public void ResetAll()
+        {
+            _isSpace = false;
+            _isLink = false; _inQuete = false;
+            DateSaver.Clear();
+        }
         
     }
     public static class Input
     {
-        public static string GetInput()
+        public static string GetInput(string? LastCommand)
         {
-            StringBuilder input = new StringBuilder();
+            
+            StringBuilder input = new StringBuilder(LastCommand ?? string.Empty);
             ConsoleKeyInfo keyinfo;
             ColorDrawer color = new ColorDrawer();
 
+            if (LastCommand != null)
+            {
+                for (int i = 0; i < LastCommand.Length; i++)
+                {
+                    Console.ForegroundColor = color.GetColorForChar(LastCommand[i]);
+                    Console.Write(LastCommand[i]);
+                    Console.ResetColor();
+                }
+            }
+            
             do
             {
                 keyinfo = Console.ReadKey(true);
+
+
+                if (keyinfo.Key == ConsoleKey.UpArrow)
+                    return PlaceHolders.PlaceHolder.PlaceHolderForMoreActon  + "_UPARROW";
+                if (keyinfo.Key == ConsoleKey.DownArrow)
+                    return PlaceHolders.PlaceHolder.PlaceHolderForMoreActon + "_DOWNARROW";
 
                 if (keyinfo.Key == ConsoleKey.Backspace && input.Length > 0)
                 {
                     input.Length--;
                     Console.Write("\b \b");
-                    color.ResetState();
+                    if (input.Length > 1)
+                        color.ResetState();
+                    else
+                        color.ResetAll();
                     continue;
                     
                 }
@@ -96,7 +124,7 @@ namespace LightInput
                 }
             } while (keyinfo.Key != ConsoleKey.Enter);
             Console.Write('\n');
-            return input.ToString();
+            return  input.ToString();
         }
     }
 }

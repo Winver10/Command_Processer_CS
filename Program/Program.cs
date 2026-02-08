@@ -34,13 +34,31 @@ namespace MainProgram
         {
             List<Command> cmds = new List<Command>();
             Command_Explainer cmexp = new Command_Explainer();
+            int counter = 0;
 
             while (true)
             {
                 Console.Write(">");
-                List<string> commandAfterExplainde = cmexp.ExplainCommand(LightInput.Input.GetInput());
-                Command cmd = new Command(cmexp.getID(), commandAfterExplainde);
+                string line = LightInput.Input.GetInput(null);
+                if (line == PlaceHolders.PlaceHolder.PlaceHolderForMoreActon + "_UPARROW" && counter > 0)
+                {
+                    Console.Write("\r" + new string(' ', Console.WindowWidth) + "\r");
+                    Console.Write(">");
+                    line = LightInput.Input.GetInput(cmds[counter - 1].GetAllContent());
+                    counter--;
+                }
+
+                if (line == PlaceHolders.PlaceHolder.PlaceHolderForMoreActon + "_DOWNARROW" && counter < cmds.Count)
+                {
+                    Console.Write("\r" + new string(' ', Console.WindowWidth) + "\r");
+                    Console.Write(">");
+                    line = LightInput.Input.GetInput(cmds[counter + 1].GetAllContent()); 
+                    counter++;
+                }
+                    
+                Command cmd = new Command(cmexp.getID(), cmexp.ExplainCommand(line));
                 cmds.Add(cmd);
+                counter = cmexp.getID();
                 Display(cmds);
             }
         }

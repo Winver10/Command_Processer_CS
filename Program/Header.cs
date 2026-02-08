@@ -18,7 +18,7 @@ using System.Collections.Generic;
 
 namespace Command_Processer
 {
-    class Command //difine a class "Command" to store the info of a command
+    class Command //define a class "Command" to store the info of a command
     {
         private int _Command_ID {  get; set; }
         private List<string> _Content { get; } //the command stored as a List<string>
@@ -42,7 +42,7 @@ namespace Command_Processer
                 result += _Content[i];
                 if (i != _Content.Count - 1)
                 {
-                    result += " ";//add space between each picese
+                    result += " ";//add space between each pieces
                 }
             }
             return result;
@@ -59,15 +59,15 @@ namespace Command_Processer
             ID++;
             List<string> cont = new List<string>();
 
-            if (string.IsNullOrEmpty(input))//return "NO_0" to express that there no cotent be inputed
+            if (string.IsNullOrEmpty(input))//return "NO_0" to express that there no content be inputted
             {
-                cont.Add("NO_0");
+                cont.Add(PlaceHolders.PlaceHolder.PlaceHolderForNoInput);
             }
             else
             {
                 input = input.Trim();//erase the space at the start or end
 
-                //a long logic, I don't know how it work, but it just can work
+                //a long logic, I don't know how it works, but it just can work
                 bool inQuotes = false;
                 System.Text.StringBuilder current = new System.Text.StringBuilder();
 
